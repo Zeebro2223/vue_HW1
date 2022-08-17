@@ -26,15 +26,17 @@
       </form>
       <div class="tasks">
         <ul>
-          <li v-for="(item, index) in items" :key="item.id" :title="item.title">
-            <div class="task">
-              <input type="checkbox" v-model="item.checked" />
-              <label
-                :class="{isChecked: item.checked}"
-                @click="removeTask(index)"
-                >{{item.id}} - {{ item.title }}</label
-              >
-            </div>
+          <li
+            v-for="(item, index) in items"
+            :key="item.id"
+            :title="item.title"
+            @click="removeTask(index)"
+            class="task"
+          >
+            <input type="checkbox" v-model="item.checked" @click.stop />
+            <span :class="{isChecked: item.checked}"
+              >{{item.id}} - {{ item.title }}</span
+            >
           </li>
         </ul>
       </div>

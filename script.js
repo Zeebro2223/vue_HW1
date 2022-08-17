@@ -18,11 +18,14 @@ var app = new Vue({
       }
     },
     removeTask: function (index) {
+      console.log(index);
+      console.log(this.items);
       this.items.splice(index, 1);
     },
   },
   computed: {
     checkedNum: function () {
+      console.log(this.items);
       const sum =
         this.items.filter((item) => item.checked).length / this.items.length;
       return sum;
